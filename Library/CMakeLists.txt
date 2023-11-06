@@ -4,6 +4,7 @@ project(wrapper VERSION 0.0.1 DESCRIPTION "A wrapper over SDL3")
 set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(vendor/SDL)
+add_subdirectory(vendor/SDL_mixer)
 
 file(
     GLOB_RECURSE source-files
@@ -16,6 +17,7 @@ add_compile_definitions(MExport)
 target_include_directories(
     sdlW PUBLIC
     "vendor/SDL/include/"
+    "vendor/SDL_mixer/include"
     "vendor/STB/"
     "include/"
     "src/"
@@ -24,4 +26,5 @@ target_include_directories(
 target_link_libraries(
     sdlW PUBLIC
     SDL3::SDL3
+    SDL3_mixer::SDL3_mixer
 )

@@ -22,6 +22,8 @@ namespace sdlw
         SDL_Renderer* GetHandle() const;
 
         void SetClearColor(const SDL_Color& color);
+        void SetDrawColor(const SDL_Color& color);
+
         void Clear();
         void Present();
 
@@ -29,9 +31,16 @@ namespace sdlw
         void RenderTexture(Texture& texture, const FPoint& dstPoint);
         void RenderTexture(Texture& texture);
 
+        void Rectangle(const FRect& rectangle, bool fill = true);
+    
+    private:
+        void ApplyColor(const SDL_Color& color);
+
     private:
         Window& m_Window;
         SDL_Renderer* m_Renderer;
+
         SDL_Color m_ClearColor;
+        SDL_Color m_DrawColor;
     };
 }

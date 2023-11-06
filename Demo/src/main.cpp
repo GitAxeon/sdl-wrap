@@ -72,6 +72,7 @@ int main(int argc, char* argv[])
     bool flash = false;
     int flashCount = 0;
 
+    renderer.SetDrawColor({128, 128, 0, 255});
     while (window.KeepOpen())
     {
         clock.Tick();
@@ -143,6 +144,7 @@ int main(int argc, char* argv[])
         renderer.RenderTexture(texture);
         renderer.RenderTexture(texture, sdlw::FPoint(0, 0));
         renderer.RenderTexture(texture, sdlw::FPoint(128, 128));
+        renderer.Rectangle({128, 128, 32, 32});
         
         renderer.Present();
     }

@@ -15,14 +15,6 @@ target_link_libraries(wrap-demo PUBLIC sdlW)
 set(resources-dir ${CMAKE_CURRENT_SOURCE_DIR}/resources/)
 set(destination-dir ${RUNTIME_OUTPUT_DIRECTORY}/resources)
 
-# add_custom_command(
-#         TARGET X POST_BUILD
-#         COMMAND ${CMAKE_COMMAND} -E copy_directory
-#         "${RESOURCE_FOLDER}"
-#         "$<TARGET_FILE_DIR:A>/resource"
-#         COMMENT "Copying resources"
-# )
-
 add_custom_target(copy_resources
     COMMAND ${CMAKE_COMMAND} -E make_directory ${destination-dir}
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${resources-dir} $<TARGET_FILE_DIR:wrap-demo>/resources

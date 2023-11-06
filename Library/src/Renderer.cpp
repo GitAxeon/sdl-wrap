@@ -10,7 +10,7 @@
 SDLW_NAMESPACE_BEGIN
 
 Renderer::Renderer(Window &window)
-    : m_Window(window), m_ClearColor({0, 0, 0, 255})
+    : m_Window(window), m_Renderer(nullptr), m_ClearColor({0, 0, 0, 255}), m_DrawColor({255, 0, 255, 255})
 {
     uint32_t flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
     m_Renderer = SDL_CreateRenderer(window.GetNativeWindow(), nullptr, flags);
@@ -42,10 +42,16 @@ void Renderer::SetClearColor(const SDL_Color &color)
     m_ClearColor = color;
 }
 
+void Renderer::SetDrawColor( const SDL_Color& color)
+{
+    m_DrawColor = color;
+}
+
 void Renderer::Clear()
 {
-    SDL_SetRenderDrawColor(m_Renderer, m_ClearColor.r, m_ClearColor.g, m_ClearColor.b, m_ClearColor.a);
+    ApplyColor(m_ClearColor);
     SDL_RenderClear(m_Renderer);
+    ApplyColor(m_DrawColor);
 }
 
 void Renderer::RenderTexture(Texture& texture, const Optional<FRect>& srcRect, const Optional<FRect>& dstRect)
@@ -82,5 +88,18 @@ void Renderer::RenderTexture(Texture& texture)
 {        
     RenderTexture(texture, NullOpt, NullOpt);
 };
+
+void Renderer::Rectangle(const FRect& rectangle, bool fill)
+{
+    if(fill)
+        SDL_RenderFillRect(m_Renderer, &rectangle);
+    else
+        SDL_RenderRect(m_Renderer, &rectangle);
+}
+
+void Renderer::ApplyColor(const SDL_Color& color)
+{
+    SDL_SetRenderDrawColor(m_Renderer, color.r, color.g, color.b, color.a);
+}
 
 SDLW_NAMESPACE_END
