@@ -20,6 +20,8 @@ Renderer::Renderer(Window &window)
         Log.Error("Created Renderer unsuccesfully");
         throw std::runtime_error("Failed to create Window");
     }
+
+    ApplyColor(m_DrawColor);
 }
 
 Renderer::~Renderer()
@@ -45,6 +47,7 @@ void Renderer::SetClearColor(const SDL_Color &color)
 void Renderer::SetDrawColor( const SDL_Color& color)
 {
     m_DrawColor = color;
+    ApplyColor(color);
 }
 
 void Renderer::Clear()
