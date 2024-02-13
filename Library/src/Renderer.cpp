@@ -34,6 +34,11 @@ SDL_Renderer* Renderer::GetHandle() const
     return m_Renderer;
 }
 
+Window& Renderer::GetWindow() const
+{
+    return m_Window;
+}
+
 void Renderer::Present()
 {
     SDL_RenderPresent(m_Renderer);

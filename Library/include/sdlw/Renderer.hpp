@@ -20,6 +20,7 @@ namespace sdlw
         explicit Renderer(Window &window);
         ~Renderer();
         SDL_Renderer* GetHandle() const;
+        Window& GetWindow() const;
 
         void SetClearColor(const SDL_Color& color);
         void SetDrawColor(const SDL_Color& color);
