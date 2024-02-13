@@ -4,6 +4,7 @@
 #include "debug/Log.hpp"
 
 #include <exception>
+#include "Window.hpp"
 
 SDLW_NAMESPACE_BEGIN
 
@@ -84,6 +85,16 @@ void Window::SetSize(unsigned int width, unsigned int height)
     m_Info.Width = width;
     m_Info.Height = height;
     SDL_SetWindowSize(m_SDLWindow, width, height);
+}
+
+unsigned int sdlw::Window::GetWidth() const
+{
+    return m_Info.Width;
+}
+
+unsigned int sdlw::Window::GetHeight() const
+{
+    return m_Info.Height;
 }
 
 bool Window::Ok() const

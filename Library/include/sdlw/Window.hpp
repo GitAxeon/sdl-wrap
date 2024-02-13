@@ -45,6 +45,9 @@ namespace sdlw
         void SetWidth(unsigned int width);
         void SetHeight(unsigned int height);
         void SetSize(unsigned int width, unsigned int height);
+        
+        unsigned int GetWidth() const;
+        unsigned int GetHeight() const;
 
         void SetTransparency(float value);
         uint32_t GetFlags() const;
