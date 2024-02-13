@@ -4,7 +4,6 @@
 #include "debug/Log.hpp"
 
 #include <exception>
-#include "Window.hpp"
 
 SDLW_NAMESPACE_BEGIN
 
