@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(wrapper VERSION 0.0.1 DESCRIPTION "A wrapper over SDL3")
+project(wrapper VERSION 0.0.1 DESCRIPTION "A wrapper over SDL3" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 
