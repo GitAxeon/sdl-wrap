@@ -7,7 +7,7 @@
 //#undef DEBUG
 
 template <typename OutputStreamT>
-class API LoggerBase
+class LoggerBase
 {
 public:
     LoggerBase(OutputStreamT& OutputStream) : m_OutputStream(OutputStream) {}

@@ -14,7 +14,7 @@ namespace sdlw
     class Window;
     class Texture;
 
-    class API Renderer
+    class Renderer
     {
     public:
         explicit Renderer(Window &window);

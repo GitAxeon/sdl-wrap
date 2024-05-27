@@ -14,7 +14,7 @@ namespace sdlw
     
     using CustomEventCallback = std::function<bool(SDL_Event &e)>;
 
-    class API Context
+    class Context
     {
     public:
         explicit Context(uint32_t sdl_initFlags = SDL_INIT_EVERYTHING);

@@ -11,16 +11,14 @@ file(
     "src/*.cpp"
 )
     
-add_library(sdlW SHARED ${source-files})
-add_compile_definitions(MExport)
+add_library(sdlW STATIC ${source-files})
 
-target_include_directories(
-    sdlW PUBLIC
+target_include_directories(sdlW
+    PUBLIC
+    "include/"
     "vendor/SDL/include/"
     "vendor/SDL_mixer/include"
     "vendor/STB/"
-    "include/"
-    "src/"
 )
 
 target_link_libraries(

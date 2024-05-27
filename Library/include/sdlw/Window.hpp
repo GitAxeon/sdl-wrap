@@ -14,7 +14,7 @@
 
 namespace sdlw
 {
-    struct API WindowInfo
+    struct WindowInfo
     {
         std::string Title;
         unsigned int Width;
@@ -28,7 +28,7 @@ namespace sdlw
     };
 
     class Context;
-    class API Window
+    class Window
     {
     public:
         Window(Context& context, const WindowInfo &info);

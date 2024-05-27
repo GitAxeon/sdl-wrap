@@ -12,8 +12,8 @@ namespace sdlw
     using WindowID = SDL_WindowID;
     using EventCallback = std::function<bool(SDL_Event &)>;
 
-    float API GetMouseX();
-    float API GetMouseY();
+    float GetMouseX();
+    float GetMouseY();
 
-    Point API GetMousePosition();
+    Point GetMousePosition();
 }

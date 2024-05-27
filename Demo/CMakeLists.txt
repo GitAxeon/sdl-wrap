@@ -10,7 +10,7 @@ file(
 
 add_executable(wrap-demo ${source-files})
 
-target_link_libraries(wrap-demo PUBLIC sdlW)
+target_link_libraries(wrap-demo PRIVATE sdlW)
 
 set(resources-dir ${CMAKE_CURRENT_SOURCE_DIR}/resources/)
 set(destination-dir ${RUNTIME_OUTPUT_DIRECTORY}/resources)

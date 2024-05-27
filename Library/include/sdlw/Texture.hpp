@@ -11,7 +11,7 @@
 
 namespace sdlw
 {
-    class API Texture
+    class Texture
     {
     public:
         enum class ImageFormat { RGB, RGBA };
