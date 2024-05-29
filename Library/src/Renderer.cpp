@@ -12,8 +12,7 @@ SDLW_NAMESPACE_BEGIN
 Renderer::Renderer(Window &window)
     : m_Window(window), m_Renderer(nullptr), m_ClearColor({0, 0, 0, 255}), m_DrawColor({255, 0, 255, 255})
 {
-    uint32_t flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
-    m_Renderer = SDL_CreateRenderer(window.GetNativeWindow(), nullptr, flags);
+    m_Renderer = SDL_CreateRenderer(window.GetNativeWindow(), nullptr);
 
     if(m_Renderer == nullptr)
     {

@@ -5,9 +5,9 @@
 
 namespace sdlw
 {
-    Texture::Texture(Renderer& renderer, int width, int height, uint32_t format, int access)
+    Texture::Texture(Renderer& renderer, int width, int height, SDL_PixelFormatEnum format, int access)
         : m_Texture(nullptr), m_Width(width), m_Height(height), m_Format(format)
-    {
+    { 
         m_Texture = SDL_CreateTexture(
             renderer.GetHandle(),
             format,

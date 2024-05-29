@@ -20,7 +20,6 @@ EventScope GetEventScope(EventType type)
         case SDL_EVENT_MOUSE_MOTION:
         case SDL_EVENT_MOUSE_WHEEL:
         case SDL_EVENT_TEXT_EDITING:
-        case SDL_EVENT_TEXT_EDITING_EXT:
         case SDL_EVENT_TEXT_INPUT:
         case SDL_EVENT_DROP_TEXT:
         case SDL_EVENT_WINDOW_HIDDEN:
@@ -68,8 +67,6 @@ WindowID GetWindowID(const SDL_Event& event)
             return event.wheel.windowID;
         case SDL_EVENT_TEXT_EDITING:
             return event.edit.windowID;
-        case SDL_EVENT_TEXT_EDITING_EXT:
-            return event.editExt.windowID;
         case SDL_EVENT_TEXT_INPUT:
             return event.text.windowID;
         case SDL_EVENT_DROP_TEXT:

@@ -16,7 +16,7 @@ namespace sdlw
     public:
         enum class ImageFormat { RGB, RGBA };
 
-        Texture(Renderer& renderer, int width, int height, uint32_t format, int access = SDL_TEXTUREACCESS_STATIC);
+        Texture(Renderer& renderer, int width, int height, SDL_PixelFormatEnum format, int access = SDL_TEXTUREACCESS_STATIC);
         Texture(Renderer& renderer, std::string filepath, ImageFormat format = ImageFormat::RGBA);
         ~Texture();
 

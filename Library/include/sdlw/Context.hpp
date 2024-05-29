@@ -17,7 +17,7 @@ namespace sdlw
     class Context
     {
     public:
-        explicit Context(uint32_t sdl_initFlags = SDL_INIT_EVERYTHING);
+        explicit Context(uint32_t sdl_initFlags = SDL_INIT_VIDEO);
         Context(const Context&) = delete;
 
         ~Context();
