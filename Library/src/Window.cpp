@@ -11,8 +11,7 @@ Window::Window(Context& context, const WindowInfo &info) : m_SDLWindow(nullptr),
 {
     m_Context = context;
 
-    uint32_t flags = SDL_WINDOW_VULKAN;
-    m_SDLWindow = SDL_CreateWindow(info.Title.c_str(), info.Width, info.Height, flags);
+    m_SDLWindow = SDL_CreateWindow(info.Title.c_str(), info.Width, info.Height, info.Flags);
 
     if(m_SDLWindow == nullptr)
     {

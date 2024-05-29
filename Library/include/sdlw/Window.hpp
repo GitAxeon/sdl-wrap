@@ -19,12 +19,13 @@ namespace sdlw
         std::string Title;
         unsigned int Width;
         unsigned int Height;
+        SDL_WindowFlags Flags;
 
         WindowInfo()
-            : Title("default"), Width(720), Height(300) {}
+            : Title("default"), Width(720), Height(300), Flags(0) {}
 
-        WindowInfo(const std::string& title, unsigned int width, unsigned int height)
-            : Title(title), Width(width), Height(height) {}
+        WindowInfo(const std::string& title, unsigned int width, unsigned int height, SDL_WindowFlags windowFlags)
+            : Title(title), Width(width), Height(height), Flags(windowFlags)  {}
     };
 
     class Context;
