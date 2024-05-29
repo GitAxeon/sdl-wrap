@@ -24,7 +24,7 @@ namespace sdlw
         WindowInfo()
             : Title("default"), Width(720), Height(300), Flags(0) {}
 
-        WindowInfo(const std::string& title, unsigned int width, unsigned int height, SDL_WindowFlags windowFlags)
+        WindowInfo(const std::string& title, unsigned int width, unsigned int height, SDL_WindowFlags windowFlags = 0)
             : Title(title), Width(width), Height(height), Flags(windowFlags)  {}
     };
 
