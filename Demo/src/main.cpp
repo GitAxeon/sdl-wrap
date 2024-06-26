@@ -22,15 +22,15 @@ int main(int argc, char* argv[])
     sdlw::Texture texture(renderer, "resources/image.png");
 
     bool userInput = false;
-    window.SetEventCallback([&](SDL_Event& event) -> bool
+    window.SetEventCallback([&](sdlw::Event& event) -> bool
     {
-        switch(event.type)
+        switch(event.SDL.type)
         {
             case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
                 window.Close();
             break;
             case SDL_EVENT_KEY_DOWN:
-                switch(event.key.keysym.sym)
+                switch(event.SDL.key.keysym.sym)
                 {
                     case SDLK_ESCAPE:
                         window.Close();

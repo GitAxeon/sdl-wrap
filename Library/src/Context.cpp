@@ -98,9 +98,12 @@ int Context::PollEvents()
 {
     int handledEvents = 0;
 
-    SDL_Event event;
-    while (SDL_PollEvent(&event))
+    SDL_Event sdlEvent;
+    while (SDL_PollEvent(&sdlEvent))
     {
+        Event event(sdlEvent);
+        event.WindowID = GetWindowID(sdlEvent);
+
         if(m_CustomEventCallback != nullptr && m_CustomEventCallback(event))
         {
             handledEvents++;
@@ -114,15 +117,13 @@ int Context::PollEvents()
     return handledEvents;
 }
 
-bool Context::DispatchEvent(SDL_Event& event)
+bool Context::DispatchEvent(Event& event)
 {
-    if(GetEventScope(event.type) == EventScope::Directed)
+    if(event.WindowID.has_value())
     {
-        WindowID id = GetWindowID(event);
-
-        if(m_EventCallbacks.count(id) != 0)
+        if(m_EventCallbacks.count(*event.WindowID) != 0)
         {
-            return m_EventCallbacks[id](event);
+            return m_EventCallbacks[*event.WindowID](event);
         }
         
         return false;

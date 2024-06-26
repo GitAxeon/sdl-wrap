@@ -6,46 +6,7 @@
 
 SDLW_NAMESPACE_BEGIN
 
-EventScope GetEventScope(EventType type)
-{
-    switch(type)
-    {
-        case SDL_EVENT_FINGER_DOWN:
-        case SDL_EVENT_FINGER_MOTION:
-        case SDL_EVENT_FINGER_UP:
-        case SDL_EVENT_KEY_DOWN:
-        case SDL_EVENT_KEY_UP:
-        case SDL_EVENT_MOUSE_BUTTON_DOWN:
-        case SDL_EVENT_MOUSE_BUTTON_UP:
-        case SDL_EVENT_MOUSE_MOTION:
-        case SDL_EVENT_MOUSE_WHEEL:
-        case SDL_EVENT_TEXT_EDITING:
-        case SDL_EVENT_TEXT_INPUT:
-        case SDL_EVENT_DROP_TEXT:
-        case SDL_EVENT_WINDOW_HIDDEN:
-        case SDL_EVENT_WINDOW_EXPOSED:
-        case SDL_EVENT_WINDOW_MOVED:
-        case SDL_EVENT_WINDOW_RESIZED:
-        case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
-        case SDL_EVENT_WINDOW_MINIMIZED:
-        case SDL_EVENT_WINDOW_MAXIMIZED:
-        case SDL_EVENT_WINDOW_RESTORED:
-        case SDL_EVENT_WINDOW_MOUSE_ENTER:
-        case SDL_EVENT_WINDOW_MOUSE_LEAVE:
-        case SDL_EVENT_WINDOW_FOCUS_GAINED:
-        case SDL_EVENT_WINDOW_FOCUS_LOST:
-        case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
-        case SDL_EVENT_WINDOW_TAKE_FOCUS:
-        case SDL_EVENT_WINDOW_HIT_TEST:
-        case SDL_EVENT_WINDOW_ICCPROF_CHANGED:
-        case SDL_EVENT_WINDOW_DISPLAY_CHANGED:
-            return EventScope::Directed;
-        default:
-            return EventScope::General;
-    }
-}
-
-WindowID GetWindowID(const SDL_Event& event)
+std::optional<WindowID> GetWindowID(const SDL_Event& event)
 {
     switch (event.type)
     {
@@ -90,6 +51,8 @@ WindowID GetWindowID(const SDL_Event& event)
         case SDL_EVENT_WINDOW_DISPLAY_CHANGED:
             return event.window.windowID;
     }
+
+    return std::nullopt;
 }
 
 float GetMouseX()
