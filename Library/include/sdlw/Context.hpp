@@ -12,7 +12,7 @@ namespace sdlw
     class Window;
     struct WindowInfo;
     
-    using CustomEventCallback = std::function<bool(Event&)>;
+    using CustomEventCallback = std::function<bool(SDL_Event &e)>;
 
     class Context
     {
@@ -36,7 +36,7 @@ namespace sdlw
     private:
         friend class Window;
         bool SetWindowEventCallback(WindowID id, const EventCallback& callback);
-        bool DispatchEvent(Event &e);
+        bool DispatchEvent(SDL_Event &e);
 
     private:
         std::map<WindowID, EventCallback> m_EventCallbacks;

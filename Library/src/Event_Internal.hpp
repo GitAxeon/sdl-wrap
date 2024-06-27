@@ -4,6 +4,9 @@
 
 SDLW_NAMESPACE_BEGIN
 
-std::optional<WindowID> GetWindowID(const SDL_Event& event);
+enum class EventScope { Directed, General };
+
+EventScope GetEventScope(EventType type);
+WindowID GetWindowID(const SDL_Event& event);
 
 SDLW_NAMESPACE_END
